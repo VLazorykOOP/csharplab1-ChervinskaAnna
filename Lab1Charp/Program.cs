@@ -15,9 +15,7 @@ public class Task
          Console.WriteLine("Double Sum: " + doubleSum);
         }
     }
-    class Program
-
-{
+    class Program { 
     static void Main(string[] args)
     {
         Console.WriteLine("What task do you want?");
@@ -83,32 +81,31 @@ public class Task
     static void task2()
     {
         Console.WriteLine("Task 2");
-        int[] array = new int[3];
+            double[] sides = new double[3];
 
-        float max = 0,A = 0, B = 0, C = 0;
-        for (int i = 0; i < 3; i++)
-        {
-            Console.WriteLine("Enter sides of triangle (it should be positve)\nSide " + (i + 1) + " = ");
-     
-            array[i] = int.Parse(Console.ReadLine());
-            max = Math.Max(max, array[i]);
-        }
-        max = A;
+            for (int i = 0; i < 3; i++)
+            {
+                Console.WriteLine("Enter side {i + 1} of the triangle (should be positive): ");
+                sides[i] = double.Parse(Console.ReadLine());
+            }
 
-        int indexOfMax = Array.IndexOf(array, max);
+            Array.Sort(sides); // Сортуємо сторони в порядку зростання
 
-        for (int i = 0; i < 3; i++) { 
-        if (array[i] == array[indexOfMax]) { 
+            double a = sides[0];
+            double b = sides[1];
+            double c = sides[2];
+
             
-           }
+
+            if (c*c == b*b + a*a)
+            {
+                Console.WriteLine("Congratulations!! This is a right triangle");
+            }
+            else
+            {
+                Console.WriteLine("This is not a right triangle");
+            }
         }
-        //if ( ) {
-        //    Console.WriteLine("Congratulations!! This is a right triangle");
-        //}
-        //else { 
-        //    Console.WriteLine("This is not a right triangle");
-        //}
-    }
 
 
     static void task3()
@@ -131,8 +128,11 @@ public class Task
     static void task4()
     {
         Console.WriteLine("Task 4");
-    }
-    static void task5()
+        Console.Write("How many gears on the channel (1-10) ?");
+        var C = int.Parse(Console.ReadLine());
+
+        }
+        static void task5()
     {
         Console.WriteLine("Task 5");
         Console.WriteLine("Enter 2 value");
