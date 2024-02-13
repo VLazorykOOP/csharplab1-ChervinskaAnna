@@ -1,5 +1,6 @@
 ﻿
 using System;
+using System.Threading.Channels;
 using System.Xml.Linq;
 
 namespace LAB1 { 
@@ -15,6 +16,7 @@ public class Task
          Console.WriteLine("Double Sum: " + doubleSum);
         }
     }
+
     class Program { 
     static void Main(string[] args)
     {
@@ -85,11 +87,11 @@ public class Task
 
             for (int i = 0; i < 3; i++)
             {
-                Console.WriteLine("Enter side {i + 1} of the triangle (should be positive): ");
+                Console.WriteLine("Enter side " + (i + 1) + " of the triangle (should be positive): ");
                 sides[i] = double.Parse(Console.ReadLine());
             }
 
-            Array.Sort(sides); // Сортуємо сторони в порядку зростання
+            Array.Sort(sides); 
 
             double a = sides[0];
             double b = sides[1];
@@ -127,10 +129,28 @@ public class Task
     }
     static void task4()
     {
-        Console.WriteLine("Task 4");
-        Console.Write("How many gears on the channel (1-10) ?");
-        var C = int.Parse(Console.ReadLine());
+            Dictionary<int, List<string>> tvPrograms = new Dictionary<int, List<string>>()
+        {
+            {1, new List<string>{"News", "Series", "Movie"}}, 
+            {2, new List<string>{"Cartoon", "Talk show", "Sports"}} 
+        };
 
+            Console.WriteLine("Enter the TV channel number:");
+            int channelNumber = int.Parse(Console.ReadLine());
+
+    
+            if (tvPrograms.ContainsKey(channelNumber))
+            {
+                Console.WriteLine($"Programs on channel {channelNumber}:");
+                foreach (string program in tvPrograms[channelNumber])
+                {
+                    Console.WriteLine(program);
+                }
+            }
+            else
+            {
+                Console.WriteLine("Channel with this number was not found.");
+            }
         }
         static void task5()
     {
